@@ -12,11 +12,7 @@ void mainDelegate() async {
     DeviceOrientation.portraitDown,
   ]);
 
-  // SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-  //   statusBarBrightness: Brightness.dark,
-  // ));
-
   await setupLocator();
 
-  runApp(App());
+  runApp(const App());
 }

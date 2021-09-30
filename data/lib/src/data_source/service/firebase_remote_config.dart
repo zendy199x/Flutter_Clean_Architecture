@@ -1,13 +1,13 @@
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 
 class FirebaseRemoteConfig {
-  /// version mới nhất
+  /// Latest version
   static const String VERSION = 'version';
 
-  /// version gần nhất bắt buộc cập nhật
+  // The latest version is required to update
   static const String LAST_CONSTRAINT_VERSION = 'last_constraint_version';
 
-  /// bắt buộc cập nhật nếu constraint = true
+  // Force update if constraint = true
   static const String CONSTRAINT = 'constraint';
 
   static const Map<String, dynamic> DEFAULT_REMOTE_CONFIG = {

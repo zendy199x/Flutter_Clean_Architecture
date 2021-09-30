@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../size_config.dart';
 import '../../di/locator.dart';
 import '../popup/floating_popup/floating_popup.dart';
 import 'home_bloc.dart';
@@ -12,6 +13,8 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
+
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => locator<HomeBloc>()),
