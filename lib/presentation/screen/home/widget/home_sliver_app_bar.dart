@@ -8,9 +8,9 @@ class HomeSliverAppBar extends CustomSliverAppBarDelegate {
   HomeSliverAppBar()
       : super(
           expandedHeight: 300,
-          title: FlutterLogo(),
+          title: const FlutterLogo(),
           leading: IconButton(
-            onPressed: () => null,
+            onPressed: () {},
             splashRadius: 24,
             icon: const Icon(
               CupertinoIcons.app_badge,
@@ -20,9 +20,9 @@ class HomeSliverAppBar extends CustomSliverAppBarDelegate {
           autoHideLeading: false,
           actions: [
             IconButton(
-              onPressed: () => null,
+              onPressed: () {},
               splashRadius: 24,
-              icon: Icon(CupertinoIcons.cart),
+              icon: const Icon(CupertinoIcons.cart),
             ),
           ],
           searchBar: const HomeSearchBar(),

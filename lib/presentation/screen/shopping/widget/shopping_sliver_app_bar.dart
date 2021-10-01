@@ -23,7 +23,7 @@ class ShoppingSliverAppBar extends CustomSliverAppBarDelegate {
                 ///todo open cart
               },
               splashRadius: 24,
-              icon: Icon(CupertinoIcons.cart_fill),
+              icon: const Icon(CupertinoIcons.cart_fill),
             ),
           ],
           searchBar: const ShoppingSearchBar(),

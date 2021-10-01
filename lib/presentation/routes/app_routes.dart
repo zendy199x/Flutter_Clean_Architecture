@@ -15,7 +15,7 @@ class AppRoutes {
 
     switch (settings.name) {
       case Routes.init:
-        builder = (context) => AppBottomBarScreen();
+        builder = (context) => const AppBottomBarScreen();
         break;
 
       default:

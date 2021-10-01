@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'choose_region.dart';
 
 class SearchBarWithRegion extends SearchBar {
+  // ignore: use_key_in_widget_constructors
   const SearchBarWithRegion({
     required Function() onPressed,
     required String label,

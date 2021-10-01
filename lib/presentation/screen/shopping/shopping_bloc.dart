@@ -8,6 +8,7 @@ class ShoppingBloc extends BlocBase {
 
   Future getPageSetting() async {
     final result = await getScreenSetting();
+    // ignore: avoid_print
     print('isSuccessful: ${result.isSuccessful}');
     result.when(
       success: (data) => print('data: ${data.text}'),

@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 class Themes {
   Themes._();
 
-  static const colorScheme = const ColorScheme(
-    primary: const Color(0xFFfe832a),
-    primaryVariant: const Color(0xFFfe832a),
-    secondary: const Color(0xFFFDB434),
-    secondaryVariant: const Color(0xFFFDB434),
+  static const colorScheme = ColorScheme(
+    primary: Color(0xFFfe832a),
+    primaryVariant: Color(0xFFfe832a),
+    secondary: Color(0xFFFDB434),
+    secondaryVariant: Color(0xFFFDB434),
     surface: Colors.white,
     background: Colors.white,
-    error: const Color(0xffe44034),
+    error: Color(0xffe44034),
     onPrimary: Colors.white,
     onSecondary: Colors.black,
     onSurface: Colors.black,
@@ -22,6 +22,7 @@ class Themes {
 
   static final ThemeData lightTheme = ThemeData(
     primaryColor: colorScheme.primary,
+    fontFamily: "Poppins",
     colorScheme: colorScheme,
     backgroundColor: Colors.white,
     scaffoldBackgroundColor: const Color(0xFFF3F3F3),
@@ -36,18 +37,18 @@ class Themes {
         fontWeight: FontWeight.bold,
       ),
       unselectedItemColor: const Color(0xFFA4A4A4),
-      unselectedLabelStyle: TextStyle(
-        color: const Color(0xFFA4A4A4),
+      unselectedLabelStyle: const TextStyle(
+        color: Color(0xFFA4A4A4),
         fontSize: 14,
       ),
       type: BottomNavigationBarType.fixed,
     ),
     splashColor: colorScheme.primary.withOpacity(0.26),
     disabledColor: const Color(0xFFA4A4A4),
-    dialogTheme: DialogTheme(
+    dialogTheme: const DialogTheme(
       backgroundColor: Colors.white,
       shape: RoundedRectangleBorder(
-        borderRadius: const BorderRadius.all(Radius.circular(10)),
+        borderRadius: BorderRadius.all(Radius.circular(10)),
       ),
     ),
   );

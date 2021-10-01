@@ -23,15 +23,18 @@ class _FloatingPopupDrag extends StatefulWidget {
   _FloatingPopupDragState createState() => _FloatingPopupDragState();
 }
 
-class _FloatingPopupDragState extends State<_FloatingPopupDrag> with TickerProviderStateMixin {
+class _FloatingPopupDragState extends State<_FloatingPopupDrag>
+    with TickerProviderStateMixin {
   static const double bottomPadding = 16;
   static const double imgSize = 100;
   static const double padding = 15;
   static const double extraSpace = imgSize / 2 + padding;
 
-  static double get extraSpaceVerBottom => extraSpace + kBottomNavigationBarHeight + bottomPadding;
+  static double get extraSpaceVerBottom =>
+      extraSpace + kBottomNavigationBarHeight + bottomPadding;
 
-  double get extraSpaceVerTop => extraSpace + (kToolbarHeight * 2 + MediaQuery.of(context).padding.top);
+  double get extraSpaceVerTop =>
+      extraSpace + (kToolbarHeight * 2 + MediaQuery.of(context).padding.top);
 
   Offset position = Offset(
     Sizes().screenWidth - extraSpace,
@@ -69,18 +72,18 @@ class _FloatingPopupDragState extends State<_FloatingPopupDrag> with TickerProvi
         onPanEnd: _onPanEnd,
         onTap: () => onPressed(popup),
         child: Stack(alignment: Alignment.topRight, children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(padding),
-            child: Container(
+          const Padding(
+            padding: EdgeInsets.all(padding),
+            child: SizedBox(
               width: imgSize,
               height: imgSize,
               child: FlutterLogo(),
             ),
           ),
           IconButton(
-            icon: Icon(
+            icon: const Icon(
               Icons.cancel,
-              color: const Color(0xFFA4A4A4),
+              color: Color(0xFFA4A4A4),
             ),
             padding: EdgeInsets.zero,
             onPressed: () => context.read<FloatingPopupBloc>().emit(null),
@@ -124,21 +127,29 @@ class _FloatingPopupDragState extends State<_FloatingPopupDrag> with TickerProvi
   void _onPanUpdate(DragUpdateDetails details) {
     setState(() {
       position = details.globalPosition;
-      if (position.dx + extraSpace > Sizes().screenWidth)
+      if (position.dx + extraSpace > Sizes().screenWidth) {
         position = Offset(Sizes().screenWidth - extraSpace, position.dy);
-      if (position.dx - extraSpace < 0) position = Offset(extraSpace, position.dy);
-      if (position.dy + extraSpaceVerBottom > Sizes().screenHeight)
-        position = Offset(position.dx, Sizes().screenHeight - extraSpaceVerBottom);
-      if (position.dy - extraSpaceVerTop < 0) position = Offset(position.dx, extraSpaceVerTop);
+      }
+      if (position.dx - extraSpace < 0) {
+        position = Offset(extraSpace, position.dy);
+      }
+      if (position.dy + extraSpaceVerBottom > Sizes().screenHeight) {
+        position =
+            Offset(position.dx, Sizes().screenHeight - extraSpaceVerBottom);
+      }
+      if (position.dy - extraSpaceVerTop < 0) {
+        position = Offset(position.dx, extraSpaceVerTop);
+      }
     });
   }
 
   void _onPanEnd(DragEndDetails details) {
     double spaceLeft = position.dx;
     double spaceRight = Sizes().screenWidth - spaceLeft;
-    if (spaceLeft < spaceRight)
+    if (spaceLeft < spaceRight) {
       _moveToLeftEdge();
-    else
+    } else {
       _moveToRightEdge();
+    }
   }
 }

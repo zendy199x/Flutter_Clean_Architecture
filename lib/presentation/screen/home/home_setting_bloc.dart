@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeSettingBloc extends BlocBase<ScreenSetting> {
   final GetHomeScreenSetting getHomeSetting;
-  static const initState = const ScreenSetting(
-    text: 'Tìm kiếm sản phẩm...',
+  static const initState = ScreenSetting(
+    text: 'Search products...',
     color: '#949494',
   );
 

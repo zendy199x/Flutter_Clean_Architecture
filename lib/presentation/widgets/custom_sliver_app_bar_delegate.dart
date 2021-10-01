@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import '../values/sizes.dart';
 
 class CustomSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
-  static double defaultExpandedHeight = kToolbarHeight * 2 + Sizes().statusBarHeight - 10;
+  static double defaultExpandedHeight =
+      kToolbarHeight * 2 + Sizes().statusBarHeight - 10;
 
   CustomSliverAppBarDelegate({
     double? expandedHeight,
@@ -16,8 +17,8 @@ class CustomSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
     this.leading,
     this.backgroundColor,
     this.autoHideLeading,
-  })  : this.expandedHeight = expandedHeight ?? defaultExpandedHeight,
-        this.actions = actions?..add(SizedBox(width: 4));
+  })  : expandedHeight = expandedHeight ?? defaultExpandedHeight,
+        actions = actions?..add(const SizedBox(width: 4));
 
   final Widget? title;
   final Widget? background;
@@ -29,8 +30,10 @@ class CustomSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
   final bool? autoHideLeading;
 
   @override
-  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
-    final shrinkOffsetPosition = min(40, shrinkOffset / (maxExtent - minExtent) * 40).toDouble();
+  Widget build(
+      BuildContext context, double shrinkOffset, bool overlapsContent) {
+    final shrinkOffsetPosition =
+        min(40, shrinkOffset / (maxExtent - minExtent) * 40).toDouble();
     final double show = shrinkOffset / maxExtent;
     final double hide = 1 - shrinkOffset / maxExtent;
     return Stack(children: [
@@ -75,5 +78,6 @@ class CustomSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
   double get minExtent => kToolbarHeight + Sizes().statusBarHeight;
 
   @override
-  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) => true;
+  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) =>
+      true;
 }

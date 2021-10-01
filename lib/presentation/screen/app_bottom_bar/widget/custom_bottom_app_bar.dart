@@ -15,41 +15,45 @@ class CustomBottomAppBar extends StatelessWidget {
     //final unselectedItemColor = BottomNavigationBarTheme.of(context).unselectedItemColor;
 
     return BottomAppBar(
-      shape: CircularNotchedRectangle(),
-      child: Container(
+      shape: const CircularNotchedRectangle(),
+      child: SizedBox(
         height: 70,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             BottomAppBarItem(
-              onPressed: () => context.read<AppBottomBarBloc>().emit(BottomBarIndex.home),
+              onPressed: () =>
+                  context.read<AppBottomBarBloc>().emit(BottomBarIndex.home),
               isActive: currentIndex == BottomBarIndex.home,
               label: Strings.tr.home,
-              icon: Icon(CupertinoIcons.home),
+              icon: const Icon(CupertinoIcons.home),
             ),
             BottomAppBarItem(
-              onPressed: () => context.read<AppBottomBarBloc>().emit(BottomBarIndex.coupon),
+              onPressed: () =>
+                  context.read<AppBottomBarBloc>().emit(BottomBarIndex.coupon),
               isActive: currentIndex == BottomBarIndex.coupon,
               label: Strings.tr.coupon,
-              icon: Icon(CupertinoIcons.tickets),
+              icon: const Icon(CupertinoIcons.tickets),
             ),
             BottomAppBarItem(
               isActive: currentIndex == BottomBarIndex.shopping,
               onPressed: () => null,
               label: Strings.tr.shopping,
-              icon: SizedBox(),
+              icon: const SizedBox(),
             ),
             BottomAppBarItem(
-              onPressed: () => context.read<AppBottomBarBloc>().emit(BottomBarIndex.newFeed),
+              onPressed: () =>
+                  context.read<AppBottomBarBloc>().emit(BottomBarIndex.newFeed),
               isActive: currentIndex == BottomBarIndex.newFeed,
               label: Strings.tr.newFeed,
-              icon: Icon(CupertinoIcons.book),
+              icon: const Icon(CupertinoIcons.book),
             ),
             BottomAppBarItem(
-              onPressed: () => context.read<AppBottomBarBloc>().emit(BottomBarIndex.user),
+              onPressed: () =>
+                  context.read<AppBottomBarBloc>().emit(BottomBarIndex.user),
               isActive: currentIndex == BottomBarIndex.user,
               label: Strings.tr.user,
-              icon: Icon(CupertinoIcons.person),
+              icon: const Icon(CupertinoIcons.person),
             ),
           ],
         ),
@@ -81,8 +85,10 @@ class BottomAppBarItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final selectedLabelStyle = BottomNavigationBarTheme.of(context).selectedLabelStyle;
-    final unselectedLabelStyle = BottomNavigationBarTheme.of(context).unselectedLabelStyle;
+    final selectedLabelStyle =
+        BottomNavigationBarTheme.of(context).selectedLabelStyle;
+    final unselectedLabelStyle =
+        BottomNavigationBarTheme.of(context).unselectedLabelStyle;
 
     return Stack(
       alignment: Alignment.bottomCenter,
@@ -99,7 +105,9 @@ class BottomAppBarItem extends StatelessWidget {
             ),
           ]),
         ),
-        if (label != null) Text(label!, style: isActive ? selectedLabelStyle : unselectedLabelStyle)
+        if (label != null)
+          Text(label!,
+              style: isActive ? selectedLabelStyle : unselectedLabelStyle)
       ],
     );
   }

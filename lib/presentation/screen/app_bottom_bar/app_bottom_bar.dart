@@ -18,7 +18,7 @@ class AppBottomBarScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => locator<AppBottomBarBloc>(),
-      child: BottomBar(),
+      child: const BottomBar(),
     );
   }
 }
@@ -32,11 +32,11 @@ class BottomBar extends StatefulWidget {
 
 class _BottomBarState extends State<BottomBar> with TickerProviderStateMixin {
   List<Widget> pages = <Widget>[
-    HomeScreen(),
-    Center(child: Text('Coupon')),
-    ShoppingScreen(),
-    Center(child: Text('BeeFeed')),
-    Center(child: Text('Cá nhân')),
+    const HomeScreen(),
+    const Center(child: Text('Coupon')),
+    const ShoppingScreen(),
+    const Center(child: Text('BeeFeed')),
+    const Center(child: Text('Cá nhân')),
   ];
 
   late List<Key> destinationKeys;
@@ -81,7 +81,9 @@ class _BottomBarState extends State<BottomBar> with TickerProviderStateMixin {
 
   @override
   void dispose() {
-    for (AnimationController controller in faders) controller.dispose();
+    for (AnimationController controller in faders) {
+      controller.dispose();
+    }
     hideBottomBar.dispose();
     super.dispose();
   }
@@ -103,7 +105,8 @@ class _BottomBarState extends State<BottomBar> with TickerProviderStateMixin {
           fit: StackFit.expand,
           children: List<Widget>.generate(pages.length, (int index) {
             final Widget view = FadeTransition(
-              opacity: faders[index].drive(CurveTween(curve: Curves.fastOutSlowIn)),
+              opacity:
+                  faders[index].drive(CurveTween(curve: Curves.fastOutSlowIn)),
               child: KeyedSubtree(
                 key: destinationKeys[index],
                 child: pages[index],
@@ -121,7 +124,7 @@ class _BottomBarState extends State<BottomBar> with TickerProviderStateMixin {
             }
           }).toList(),
         ),
-        bottomNavigationBar: CustomBottomNavigationBar(),
+        bottomNavigationBar: const CustomBottomNavigationBar(),
       ),
     );
   }

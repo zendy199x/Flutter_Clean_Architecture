@@ -74,12 +74,12 @@ class RegionTitle extends StatelessWidget {
       padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
           color: Theme.of(context).primaryColor,
-          borderRadius: BorderRadius.vertical(
+          borderRadius: const BorderRadius.vertical(
             top: Radius.circular(10),
           )),
       child: Row(
         children: <Widget>[
-          Icon(
+          const Icon(
             CupertinoIcons.location_solid,
             size: 18,
             color: Colors.white,
@@ -88,7 +88,7 @@ class RegionTitle extends StatelessWidget {
           Expanded(
               child: Text(
             Strings.tr.titleLocation,
-            style: TextStyle(color: Colors.white),
+            style: const TextStyle(color: Colors.white),
           )),
         ],
       ),

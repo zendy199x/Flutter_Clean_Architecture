@@ -3,11 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-import '../../../constants.dart';
+import '../../../presentation/values/themes.dart';
 import '../../di/locator.dart';
 import '../../routes/app_routes.dart';
 import '../../routes/routes.dart';
-import '../../values/themes.dart';
 import 'app_bloc.dart';
 
 class App extends StatelessWidget {
@@ -45,21 +44,7 @@ class _AppViewState extends State<AppView> {
     return MaterialApp(
       title: 'Flutter',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        fontFamily: "Poppins",
-        primarySwatch: Colors.blue,
-        // Define our text field style
-        inputDecorationTheme: const InputDecorationTheme(
-          filled: true,
-          fillColor: Colors.white38,
-          border: InputBorder.none,
-          hintStyle: TextStyle(color: Colors.white),
-          contentPadding: EdgeInsets.symmetric(
-            vertical: defpaultPadding * 1.2,
-            horizontal: defpaultPadding,
-          ),
-        ),
-      ),
+      theme: Themes.lightTheme,
       locale: const Locale('vi', ''),
       supportedLocales: AppLocalizationsDelegate.supportedLocales,
       localizationsDelegates: const [
